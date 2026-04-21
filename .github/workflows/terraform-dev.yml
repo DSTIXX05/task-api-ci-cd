@@ -1,13 +1,9 @@
 name: Terraform Dev Deploy
 
 on:
-  workflow_run:
-    workflows:
-      - CI Pipeline
+  push:
     branches:
       - dev
-    types:
-      - completed
   workflow_dispatch:
 
 permissions:
@@ -18,7 +14,6 @@ jobs:
   terraform:
     name: Terraform Apply
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout2
