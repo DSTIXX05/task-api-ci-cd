@@ -1,0 +1,12 @@
+# terraform.tfvars.example
+# Copy this file to terraform.tfvars and customize with your values
+# Then run: terraform apply -var-file=terraform.tfvars
+
+aws_region     = "eu-west-1"
+instance_type  = "t2.micro"
+instance_name  = "task-api-server"
+docker_image   = "dstixx05/task-api"
+enable_public_ip = true
+
+# WARNING: For security, restrict SSH access to your IP
+# allowed_ssh_cidr = "YOUR.IP.ADDRESS.HERE/32"
