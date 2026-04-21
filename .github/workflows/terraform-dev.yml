@@ -21,7 +21,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-      - name: Checkout
+      - name: Checkout2
         uses: actions/checkout@v4
 
       - name: Setup Terraform
