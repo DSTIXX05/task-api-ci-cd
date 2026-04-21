@@ -38,11 +38,11 @@ resource "aws_security_group" "task_api" {
   }
 
   ingress {
-  from_port   = -1
-  to_port     = -1
-  protocol    = "icmp"
-  cidr_blocks = ["0.0.0.0/0"]
-}
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   # Allow all outbound traffic
   egress {
@@ -125,21 +125,21 @@ resource "aws_instance" "task_api" {
 
   # Assign public IP if enabled
   associate_public_ip_address = var.enable_public_ip
-  
+
   #user_data rerun on already created instance.
   user_data_replace_on_change = true
 
-# Storage configuration  
+  # Storage configuration  
 
   root_block_device {
     volume_type           = "gp3"
     volume_size           = 20 # 20GB is sufficient for Docker + app
     delete_on_termination = true
   }
-    
-    #private key to ssh
-    key_name = "task-api"
-  
+
+  #private key to ssh
+  key_name = "task-api"
+
 
   tags = {
     Name = var.instance_name
